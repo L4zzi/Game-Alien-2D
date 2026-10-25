@@ -8,6 +8,9 @@ from fleet_manager import FleetManager
 from game_events import GameEventHandler
 from game_renderer import GameRenderer
 
+from alien import Alien  # noqa: F401 (alien padrão, pode ser usado no lugar do FastAlien)
+from fast_alien import FastAlien
+
 
 class AlienInvasion:
     """Gerencia o jogo e seus comportamentos."""
@@ -44,7 +47,8 @@ class AlienInvasion:
         self.fleet_manager = FleetManager(
             self.screen,
             self.settings,
-            self.ship
+            self.ship,
+            FastAlien
         )
 
         self.event_handler = GameEventHandler(
